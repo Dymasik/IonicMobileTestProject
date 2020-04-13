@@ -14,9 +14,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { SQLite } from '@ionic-native/sqlite/ngx';
 import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
 import { FormsModule } from '@angular/forms';
+import { Contacts } from '@ionic-native/contacts/ngx';
+import { ContactBookComponent } from './contact-book/contact-book.component';
 
 @NgModule({
-  declarations: [AppComponent, PersonalInfoComponent, SecondPartComponent, ThirdPartComponent],
+  declarations: [AppComponent, PersonalInfoComponent, SecondPartComponent, ThirdPartComponent, ContactBookComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule],
   providers: [
@@ -24,6 +26,7 @@ import { FormsModule } from '@angular/forms';
     SplashScreen,
     SQLitePorter,
     SQLite,
+    Contacts,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
