@@ -1,0 +1,56 @@
+<ion-content>
+  <ion-item>
+    <ion-label>Year: </ion-label>
+    <ion-input type="number" [(ngModel)]="insertYear"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Yield: </ion-label>
+    <ion-input type="number" [(ngModel)]="insertYield"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Weight: </ion-label>
+    <ion-input type="number" [(ngModel)]="insertWeight"></ion-input>
+  </ion-item>
+  <ion-button (click)="insert()">Insert</ion-button>
+  <ion-button (click)="show()">Show all</ion-button>
+  <ion-button [routerLink]="['/home']">Back</ion-button>
+</ion-content>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        Year
+      </ion-col>
+      <ion-col>
+        Yield
+      </ion-col>
+      <ion-col>
+        Weight
+      </ion-col>
+      <ion-col>
+        Tools
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let value of data">
+      <ion-col class="cell-class">
+        {{value.year}}
+      </ion-col>
+      <ion-col class="cell-class">
+        <ion-input [(ngModel)]="item.yieldValue"></ion-input>
+      </ion-col>
+      <ion-col class="cell-class">
+        <ion-input [(ngModel)]="item.weight"></ion-input>
+      </ion-col>
+      <ion-col class="cell-class">
+        <ion-col>
+          <ion-button (click)="deleteRow(item)" size="small" color="danger">
+            <ion-icon name="trash"></ion-icon>
+          </ion-button>
+          <ion-button (click)="update(item)" size="small" color="warning">
+            <ion-icon name="update"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

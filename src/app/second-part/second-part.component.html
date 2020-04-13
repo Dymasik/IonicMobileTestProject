@@ -1,0 +1,48 @@
+<ion-content>
+  <ion-item>
+    <ion-label>x1: </ion-label>
+    <ion-input type="number" [(ngModel)]="helper.x1" name="x1Var"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>x2: </ion-label>
+    <ion-input type="number" [(ngModel)]="helper.x2" name="x2Var"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>dx: </ion-label>
+    <ion-input type="number" [(ngModel)]="helper.dx" name="dxVar"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Formula 128.355/(cos⁡2x+3.6)</ion-label>
+  </ion-item>
+  <ion-button (click)="calculate()">Calculate</ion-button>
+  <ion-button (click)="show()">Show result</ion-button>
+  <ion-button [routerLink]="['/home']">Back</ion-button>
+</ion-content>
+<ion-content padding class="tab5-content">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        x
+      </ion-col>
+      <ion-col>
+        value
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let value of helper.values">
+      <ion-col class="cell-class">
+        {{value.x}}
+      </ion-col>
+      <ion-col class="cell-class">
+        {{value.value}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-content>
+  <ion-list-header color="light">Graphic</ion-list-header>
+  <ion-card class="welcome-card">
+    <ion-card-content>
+      <canvas #lineCanvas></canvas>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

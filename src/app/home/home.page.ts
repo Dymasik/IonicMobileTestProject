@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormulaHelper } from './formula-helper.module';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  helper: FormulaHelper;
 
-  constructor() {}
+  constructor() {
+    this.helper = new FormulaHelper();
+  }
 
 }

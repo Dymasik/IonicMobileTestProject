@@ -1,20 +1,16 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content>
+  <ion-item>
+    <ion-label>m variable: </ion-label>
+    <ion-input type="number" [(ngModel)]="helper.m" name="mVar"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>y variable: </ion-label>
+    <ion-input type="number" [(ngModel)]="helper.y" name="yVar"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>(m^2+2.8m+0.355)/(cos⁡2y+3.6): {{ helper.result == 'NaN' ? '' : helper.result }}</ion-label>
+  </ion-item>
+  <ion-button [routerLink]="['/personal-info']">Go to detail</ion-button>
+  <ion-button [routerLink]="['/second-part']">Second part</ion-button>
+  <ion-button [routerLink]="['/third-part']">Database part</ion-button>
 </ion-content>

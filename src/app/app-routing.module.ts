@@ -1,9 +1,15 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { PersonalInfoComponent } from './personal-info/personal-info.component';
+import { SecondPartComponent } from './second-part/second-part.component';
+import { ThirdPartComponent } from './third-part/third-part.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
+  { path: 'personal-info', component: PersonalInfoComponent },
+  { path: 'second-part', component: SecondPartComponent },
+  { path: 'third-part', component: ThirdPartComponent },
 ];
 
 @NgModule({
