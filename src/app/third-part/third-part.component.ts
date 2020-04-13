@@ -17,6 +17,7 @@ export class ThirdPartComponent implements OnInit {
     insertYear: number;
     insertWeight: number;
     insertYield: number;
+    avarageWeight: number;
 
     constructor(private platform: Platform, private sqlite: SQLite) {
         this.platform.ready().then(() => {
@@ -43,10 +44,20 @@ export class ThirdPartComponent implements OnInit {
     createTable() {
         this.databaseObj.executeSql('CREATE TABLE IF NOT EXISTS SunflowerSeed (year int, yield int, weight int)', [])
             .then(() => {
-                this.seedData();
+                this.deleteData();
             })
             .catch(e => {
                 alert("error2 " + JSON.stringify(e))
+            });
+    }
+
+    deleteData() {
+        this.databaseObj.executeSql('Delete from SunflowerSeed', [])
+            .then(() => {
+                this.seedData();
+            })
+            .catch(e => {
+                alert("delete error" + JSON.stringify(e))
             });
     }
 
@@ -103,9 +114,34 @@ export class ThirdPartComponent implements OnInit {
         }
     }
 
+    calcAvarage() {
+        this.databaseObj.executeSql('SELECT AVG(weight) AS AV FROM SunflowerSeed', [])
+            .then((res) => {
+                this.avarageWeight = res.rows.item(0).AV;
+            })
+            .catch(e => {
+                alert("insert error" + JSON.stringify(e))
+            });
+    }
+
     show() {
         this.data = [];
         this.databaseObj.executeSql('SELECT * FROM SunflowerSeed', [])
+        .then((res) => {
+            if (res.rows.length > 0) {
+                for (var i = 0; i < res.rows.length; i++) {
+                    this.data.push(new SunflowerInfo(res.rows.item(i).year, res.rows.item(i).yield, res.rows.item(i).weight));
+                }
+            }
+        })
+        .catch(e => {
+            alert("error " + JSON.stringify(e))
+        });
+    }
+
+    showWhereMore() {
+        this.data = [];
+        this.databaseObj.executeSql('SELECT * FROM SunflowerSeed WHERE weight > ?', [6500000])
         .then((res) => {
             if (res.rows.length > 0) {
                 for (var i = 0; i < res.rows.length; i++) {

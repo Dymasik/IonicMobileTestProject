@@ -13,9 +13,15 @@
   </ion-item>
   <ion-button (click)="insert()">Insert</ion-button>
   <ion-button (click)="show()">Show all</ion-button>
+  <ion-button (click)="showWhereMore()">Show where weight more than 6.5 millions</ion-button>
+  <ion-button (click)="calcAvarage()">Calculate avarage</ion-button>
   <ion-button [routerLink]="['/home']">Back</ion-button>
 </ion-content>
 <ion-content>
+  <ion-item>
+    <ion-label>Avarage weight: </ion-label>
+    <ion-input type="number" disabled="true" [(ngModel)]="avarageWeight"></ion-input>
+  </ion-item>
   <ion-grid>
     <ion-row>
       <ion-col>
@@ -31,9 +37,9 @@
         Tools
       </ion-col>
     </ion-row>
-    <ion-row *ngFor="let value of data">
+    <ion-row *ngFor="let item of data">
       <ion-col class="cell-class">
-        {{value.year}}
+        {{item.year}}
       </ion-col>
       <ion-col class="cell-class">
         <ion-input [(ngModel)]="item.yieldValue"></ion-input>
