@@ -4,6 +4,7 @@ import { PersonalInfoComponent } from './personal-info/personal-info.component';
 import { SecondPartComponent } from './second-part/second-part.component';
 import { ThirdPartComponent } from './third-part/third-part.component';
 import { ContactBookComponent } from './contact-book/contact-book.component';
+import { MapComponent } from './map/map.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'second-part', component: SecondPartComponent },
   { path: 'third-part', component: ThirdPartComponent },
   { path: 'contact-book', component: ContactBookComponent },
+  { path: 'map', component: MapComponent },
 ];
 
 @NgModule({

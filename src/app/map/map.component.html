@@ -1,0 +1,28 @@
+<ion-content padding>
+    <ion-button [routerLink]="['/home']">Back</ion-button>
+    <ion-item>
+        <ion-label>Latitude</ion-label> {{currentLatitude}}
+    </ion-item>
+    <ion-item>
+        <ion-label>Longitude</ion-label> {{currentLongitude}}
+    </ion-item>
+    <ion-item>
+        <ion-label>Current address</ion-label> {{address}}
+    </ion-item>
+    <div #map id="map" style="width: 100%;height: 300px;"></div>
+    <ion-item>
+        <ion-label>User latitude</ion-label>
+        <ion-input type="number" [(ngModel)]="userLatitude" name="uLat"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label>User longitude</ion-label>
+        <ion-input type="number" [(ngModel)]="userLongitude" name="uLon"></ion-input>
+    </ion-item>
+    <ion-button (click)="calculateDist()">Calculate distance</ion-button>
+    <ion-item>
+        <ion-label>User address</ion-label>{{userAddress}}
+    </ion-item>
+    <ion-item>
+        <ion-label>Distance to user (km)</ion-label>{{distance}}
+    </ion-item>
+</ion-content>

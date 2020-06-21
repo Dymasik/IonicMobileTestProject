@@ -15,10 +15,13 @@ import { SQLite } from '@ionic-native/sqlite/ngx';
 import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
 import { FormsModule } from '@angular/forms';
 import { Contacts } from '@ionic-native/contacts/ngx';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { ContactBookComponent } from './contact-book/contact-book.component';
+import { MapComponent } from './map/map.component';
+import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 
 @NgModule({
-  declarations: [AppComponent, PersonalInfoComponent, SecondPartComponent, ThirdPartComponent, ContactBookComponent],
+  declarations: [AppComponent, PersonalInfoComponent, SecondPartComponent, ThirdPartComponent, ContactBookComponent, MapComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule],
   providers: [
@@ -27,6 +30,8 @@ import { ContactBookComponent } from './contact-book/contact-book.component';
     SQLitePorter,
     SQLite,
     Contacts,
+    Geolocation,
+    NativeGeocoder,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
